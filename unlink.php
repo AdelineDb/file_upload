@@ -13,14 +13,13 @@
 <?php
 require 'treatmentForm.php';
 
-if (isset($_POST)) {
+foreach ($_GET as $key => $item) {
 
-    unlink($_POST['delete']);
+    if (isset($_GET)) {
 
-    echo 'Le fichier a été correctement effacé';
+        unlink($item);
+
+        echo 'Le fichier a été correctement effacé';
+    }
 }
 ?>
-
-<form action="index.php" method="post">
-    <input type="submit" value="Retourner à l'accueil">
-</form>

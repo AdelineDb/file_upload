@@ -8,11 +8,11 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-    <title>Mon formulaire</title>
+    <title>Laisse pas traîner ton file</title>
 
 </head>
 <body>
-<h1>Formulaire</h1>
+<h1>Laisse pas traîner ton file</h1>
 <h3>Télécharger la photo de votre choix</h3>
 <form action="" method="post" enctype="multipart/form-data">
     <input type="hidden" name="MAX_FILE_SIZE" value="100000">
@@ -28,9 +28,7 @@ if (isset($uploaded)) {
 
         echo '<img src="' . $uploaded[$position] . '" alt="..." class="img-thumbnail"> <br>';
         echo $uploaded[$position]; ?> <br>
-        <form method="post" action="unlink.php">
-            <input type="submit" value="<?php echo $uploaded[$position] ?>" name="delete">
-        </form>
+        <a href="unlink.php?get=<?= $uploaded[$position];?>" >Supprimer</a>
         <?php
     }
 }
