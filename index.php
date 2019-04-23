@@ -1,4 +1,7 @@
 <?php require 'treatmentForm.php';
+
+$fileRes = scandir('images');
+
 ?>
 
 <!doctype html>
@@ -23,13 +26,15 @@
 
 <?php
 
-if (isset($uploaded)) {
-    foreach ($uploaded as $position => $value) {
+if (isset($fileRes)) {
+    foreach ($fileRes as $position => $value) {
+        if ($value != '.' && $value != '..') {
 
-        echo '<img src="' . $uploaded[$position] . '" alt="..." class="img-thumbnail"> <br>';
-        echo $uploaded[$position]; ?> <br>
-        <a href="unlink.php?get=<?= $uploaded[$position];?>" >Supprimer</a>
-        <?php
+            echo '<img src=" images/' . $value . '" alt="..." class="img-thumbnail"> <br>';
+            echo $value ?> <br>
+            <a href="unlink.php?get=<?= $fileRes[$position]; ?>">Supprimer <br></a>
+            <?php
+        }
     }
 }
 ?>

@@ -28,6 +28,7 @@ if (!empty($_FILES['files']['name'])) {
 
                     if (move_uploaded_file($file_tmp, $file_destination)) {
                         $uploaded[$position] = $file_destination;
+
                     } else {
                         $failed[$position] = "Le téléchargement de {$file_name} a échoué";
                     }

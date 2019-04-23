@@ -17,9 +17,13 @@ foreach ($_GET as $key => $item) {
 
     if (isset($_GET)) {
 
-        unlink($item);
+        unlink('images/' . $item);
 
         echo 'Le fichier a été correctement effacé';
     }
 }
 ?>
+
+<form action="index.php" method="post">
+    <input type="submit" value="Retourner à l'accueil">
+</form>
